@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router'
 
-// import Messages from './Messages';
 import NewBoard from './NewBoard'
 
-const baseUrl = 'https://open-message-board-api.herokuapp.com'
+// const baseUrl = 'https://open-message-board-api.herokuapp.com'
+const baseUrl = 'http://localhost:3001'
 
 class MessageBoards extends React.Component{
   constructor(){
@@ -25,10 +25,8 @@ class MessageBoards extends React.Component{
   
   createNewBoard(ev){
     ev.preventDefault()
-    const newName = ev.target.elements[0].value;
-    const data = new FormData();
-    const payLoad = {name: newName}
-    data.append( "message_board", JSON.stringify( payLoad ) );
+    const target = ev.target
+    const data = new FormData(target)
 
     fetch(`${baseUrl}/message_boards`, {
       method: 'post',
