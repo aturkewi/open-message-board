@@ -4,6 +4,8 @@ import { Link } from 'react-router'
 // import Messages from './Messages';
 import NewBoard from './NewBoard'
 
+const baseUrl = 'https://open-message-board-api.herokuapp.com'
+
 class MessageBoards extends React.Component{
   constructor(){
     super();
@@ -16,7 +18,7 @@ class MessageBoards extends React.Component{
   }
   
   componentWillMount(){
-    fetch('https://open-message-board-api.herokuapp.com/message_boards')
+    fetch(`${baseUrl}/message_boards`)
       .then(res => res.json())
       .then(json => this.setState({messageBoards: json}));
   }
@@ -28,10 +30,7 @@ class MessageBoards extends React.Component{
     const payLoad = {name: newName}
     data.append( "message_board", JSON.stringify( payLoad ) );
 
-    fetch('http://localhost:3001/message_boards',{
-      headers: new Headers({
-		    'Content-Type': 'test/json'
-      }),
+    fetch(`${baseUrl}/message_boards`, {
       method: 'post',
       body: data
     })
