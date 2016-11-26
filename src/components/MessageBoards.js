@@ -33,7 +33,11 @@ class MessageBoards extends React.Component{
       body: data
     })
     .then(res => res.json())
-    .then(json => console.log(json))
+    .then(json => {
+      this.setState(
+        {messageBoards: this.state.messageBoards.concat(json.results)}
+      )
+    })
   }
   
   render(){
