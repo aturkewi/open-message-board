@@ -1,6 +1,6 @@
 import React from 'react';
 import MessageBoards from './MessageBoards';
-import Messages from './Messages';
+import MessagesContainer from './MessagesContainer';
 
 class MessageBoardContainer extends React.Component {
   render(){
@@ -12,7 +12,7 @@ class MessageBoardContainer extends React.Component {
             <MessageBoards />
           </div>
           <div className='col-sm-8'>
-            <Messages />
+            {this.props.children}
           </div>
         </div>
       </div>

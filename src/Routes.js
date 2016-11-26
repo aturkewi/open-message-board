@@ -5,7 +5,7 @@ import { Route, IndexRoute } from 'react-router'
 import App from './components/App'
 import Home from './components/Home'
 import MessageBoardContainer from './components/MessageBoardContainer'
-import Messages from './components/Messages'
+import MessagesContainer from './components/MessagesContainer'
 
 export default (
   <Route 
@@ -19,7 +19,7 @@ export default (
       component={MessageBoardContainer}>
       <Route 
         path="/channels/:channelName"
-        component={Messages}/>
+        component={MessagesContainer}/>
     </Route>
   </Route>
 )
