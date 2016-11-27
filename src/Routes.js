@@ -18,7 +18,7 @@ export default (
       path="/channels"
       component={MessageBoardContainer}>
       <Route 
-        path="/channels/:channelName"
+        path="/channels/:channelSlug"
         component={MessagesContainer}/>
     </Route>
   </Route>

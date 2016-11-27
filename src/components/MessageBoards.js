@@ -20,7 +20,7 @@ class MessageBoards extends React.Component{
   componentWillMount(){
     fetch(`${baseUrl}/message_boards`)
       .then(res => res.json())
-      .then(json => this.setState({messageBoards: json}));
+      .then(json => this.setState({messageBoards: json}, ()=>console.log(this.state)));
   }
   
   createNewBoard(ev){
@@ -48,7 +48,7 @@ class MessageBoards extends React.Component{
         <ul>
           {this.state.messageBoards.map((mB => (
             <li key={mB.id}>
-              <Link to={{ pathname: `/channels/${mB.name}` }}>{mB.name}</Link>
+              <Link to={{ pathname: `/channels/${mB.slug}`}}> {mB.name} </Link>
             </li>
           )))}
         </ul>
