@@ -22,7 +22,7 @@ class MessagesContainer extends React.Component{
     this.getMessages();
   }
   
-  componentWillUpdate(){
+  componentWillReceiveProps(){
     this.getMessages();
   }
   
