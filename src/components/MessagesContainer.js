@@ -10,6 +10,7 @@ class MessagesContainer extends React.Component{
   constructor(props){
     super(props);
     
+    this.getMessages = this.getMessages.bind(this);
     this.createNewMessage = this.createNewMessage.bind(this);
     
     this.state = {
@@ -18,6 +19,14 @@ class MessagesContainer extends React.Component{
   }
   
   componentWillMount(){
+    this.getMessages();
+  }
+  
+  componentWillUpdate(){
+    this.getMessages();
+  }
+  
+  getMessages(){
     const { channelSlug } = this.props.routeParams
     fetch(`${baseUrl}/message_boards/${channelSlug}/messages`)
       .then(res => res.json())
